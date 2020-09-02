@@ -19,14 +19,14 @@ namespace demo
             _regionManager = regionManager;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
             //var view = _container.Resolve<ViewA>();
             IRegion region = _regionManager.Regions["ContentRegion"];
             region.Add(_container.Resolve<UserControl1>());
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void RemoveAll(object sender, RoutedEventArgs e)
         {
             IRegion region = _regionManager.Regions["ContentRegion"];
             region.RemoveAll();

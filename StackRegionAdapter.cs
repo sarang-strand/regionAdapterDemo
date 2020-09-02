@@ -15,11 +15,12 @@ namespace demo
 
         protected override void Adapt(IRegion region, StackPanel regionTarget)
         {
+            //MessageBox.Show("Adapt is called");
+
             region.Views.CollectionChanged += (s, e) =>
             {
                 if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
                 {
-                    //MessageBox.Show("Adapt is called for adding views!!");
                     foreach (FrameworkElement element in e.NewItems)
                     {
                         regionTarget.Children.Add(element);
@@ -29,8 +30,8 @@ namespace demo
                 else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
                 {
                     int i = region.Views.Count();
-                    string msg = "Removing view number {0}!!";
-                    MessageBox.Show(string.Format(msg, region.Views.Count()));
+                    //string msg = "Removing view number {0}!!";
+                    //MessageBox.Show(string.Format(msg, region.Views.Count()));
                     regionTarget.Children.RemoveAt(regionTarget.Children.Count - 1);
                 }
             };
